@@ -1,0 +1,4 @@
+<resources>
+    <!-- Nombre mostrado para la aplicación en Android. -->
+    <string name="app_name">Nexo | Portal del Gremio</string>
+</resources>

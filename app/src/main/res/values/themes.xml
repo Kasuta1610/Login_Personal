@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Tema base sin barra de acción que se aplica a la actividad principal. -->
+    <style name="Theme.Login_Personal" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>

@@ -1,0 +1,56 @@
+PROCESO DE LA APLICACIÓN — NEXO | PORTAL DEL GREMIO
+
+1. Inicio de Android
+   Android lee app/src/main/AndroidManifest.xml y encuentra MainActivity como
+   actividad principal gracias a las acciones MAIN y LAUNCHER.
+
+2. Creación de la interfaz
+   MainActivity.onCreate activa el dibujo de borde a borde y configura la interfaz
+   con Jetpack Compose. Login_PersonalTheme aplica los colores y la tipografía.
+
+3. Selección de pantalla
+   MainActivity mantiene nombreUsuario como estado guardado. Si está vacío, muestra
+   LoginPanel; cuando contiene un nombre, muestra WelcomePanel.
+
+4. Introducción de credenciales
+   LoginPanel conserva el correo, la contraseña, la visibilidad de esta y el estado
+   del mensaje de error. LoginCard presenta los campos y el botón de acceso.
+   Los campos se pueden desplazar y ajustan su espacio cuando aparece el teclado.
+
+5. Validación de acceso de demostración
+   Al tocar el botón o confirmar desde el teclado, se compara el correo ignorando
+   mayúsculas y espacios exteriores, y la contraseña se compara exactamente.
+   Credenciales de prueba definidas en MainActivity.kt:
+       Correo:     aventurero@rpg.com
+       Contraseña: runa2026
+
+6. Resultado de la validación
+   Si los datos no coinciden, se activa hayError y el formulario muestra un aviso.
+   Al editar cualquiera de los campos se limpia ese aviso.
+   Si coinciden, el nombre se obtiene de la parte del correo anterior a @ y al
+   primer punto, se pone en mayúscula su primera letra y se guarda como usuario.
+
+7. Pantalla de bienvenida
+   Al cambiar nombreUsuario, Compose vuelve a dibujar la interfaz y enseña
+   WelcomePanel con el nombre, el rango, los destellos y el emblema.
+   LogoCircular, GeometricEmblem y GeometricSparkles dibujan sus gráficos en un
+   Canvas, usando coordenadas relativas y sin imágenes externas.
+
+8. Cierre de sesión
+   El botón «Abandonar mazmorra» asigna null a nombreUsuario. Esto vuelve a mostrar
+   LoginPanel y permite iniciar el flujo otra vez.
+
+9. Archivos que definen el aspecto
+   - ui/theme/Color.kt: colores nombrados de la interfaz.
+   - ui/theme/Theme.kt: esquema oscuro aplicado por Material 3.
+   - ui/theme/Type.kt: tipografía base.
+   - res/values/strings.xml: nombre visible de la app.
+   - res/values/themes.xml: tema Android de la actividad.
+   - res/values/colors.xml: colores predeterminados del proyecto.
+
+10. Pruebas incluidas
+    ExampleUnitTest contiene una prueba local de ejemplo.
+    ExampleInstrumentedTest comprueba el identificador del paquete en Android.
+
+Nota: el acceso implementado es solo de demostración. Las credenciales están
+escritas en el código y no se consulta un servidor ni una base de datos.
